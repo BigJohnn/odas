@@ -1,0 +1,11 @@
+services:
+  odas:
+    image: ghcr.io/bigjohnn/docker-odas:latest
+    volumes:
+      - /home/hph/Codes/odas:/app # absolute path, use your own
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=$DISPLAY
+    privileged: true
+    tty: true
+    stdin_open: true

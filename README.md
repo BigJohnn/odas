@@ -1,3 +1,27 @@
+Assume you're using a respeaker_usb_4_mic_array (v2).
+```
+docker pull ghcr.io/bigjohnn/docker-odas:latest
+git clone git@github.com:BigJohnn/odas.git
+cd docker
+sudo docker compose up
+```
+
+tty1:
+```
+docker exec -it docker-odas-1 /bin/bash
+python3 DOA_sound.py
+```
+
+tty2:
+```
+docker exec -it docker-odas-1 /bin/bash
+sudo ./build/bin/odaslive -c config/odaslive/respeaker_usb_4_mic_array.cfg
+```
+
+Enjoy!
+
+Or you can build it from scratch, please read the codes in docker_dev and/or docker_runtime for more information. 
+
 ODAS 
 ====
 

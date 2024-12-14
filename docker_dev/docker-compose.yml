@@ -1,0 +1,17 @@
+services:
+  odas:
+    build:
+      context: .  # Assuming the Dockerfile is in the current directory
+      dockerfile: Dockerfile
+    volumes:
+      - /home/hph/Codes/odas:/app # Must have absolute path
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/bus/usb:/dev/bus/usb  # 挂载整个USB总线
+    devices:
+      - /dev/snd:/dev/snd  # 挂载宿主机的音频设备
+    environment:
+      - DISPLAY=$DISPLAY
+      - ALSA_CARD=hw:2,0
+    privileged: true
+    tty: true
+    stdin_open: true
